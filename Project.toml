@@ -1,6 +1,19 @@
 name = "tutorial"
 authors = ["YourName"]
+
+[deps]
+Agents = "46ada45e-f475-11e8-01d0-f70cc89e6671"
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+Conda = "8f4d0f93-b110-5947-807f-2305c1781a2d"
+DataFramesMeta = "1313f7d8-7da2-5740-9ea0-a2ca25f37964"
+DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
+DrWatson = "634d3b9d-ee7a-5ddf-bec9-22491ea816e1"
+GraphPlot = "a2cc645c-3eea-5389-862e-a155d0052231"
+LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
+OpenStreetMapX = "86cd37e6-c0ff-550b-95fe-21d72c8d4fc9"
+OpenStreetMapXPlot = "d3d4fdd0-c191-11e8-3358-a3629b56487d"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+
 [compat]
 julia = "1.2.0"
-[deps]
-DrWatson = "634d3b9d-ee7a-5ddf-bec9-22491ea816e1"
