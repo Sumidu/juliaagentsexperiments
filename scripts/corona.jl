@@ -8,6 +8,7 @@ using CSV
 using DataFrames
 using Plots
 using Images
+
 mutable struct Person <: AbstractAgent
     id::Int
     pos::Tuple{Int,Int}
@@ -18,7 +19,7 @@ mutable struct Person <: AbstractAgent
     dayssick::Int
     dead::Bool
     immune::Bool
-    age::Int
+#    age::Int
 end
 
 
@@ -92,7 +93,7 @@ function generateDensity(rawdata, target = 80000000, seed = 123)
 end
 
 rawdata = getDensityData()
-fullmap = generateDensity(rawdata, 80000000, 123123123)
+fullmap = generateDensity(rawdata, 80000, 123123123)
 sum(fullmap)
 
 gr()
@@ -103,7 +104,7 @@ heatmap(fullmap)
 
 
 
-function model_init(properties, densitymap, clusters = 1 ;seed = 123)
+function model_init(properties, densitymap, clusters = 1 ; seed = 123)
     Random.seed!(seed)
     xsize = width(densitymap)
     ysize = height(densitymap)
@@ -151,6 +152,8 @@ function modelstep!(model)
                             p.dayssick = 1
                         end
                     end
+
+
 
                     if !p.dead && !p.immune && p.sick
                         p.dayssick += 1
@@ -227,6 +230,6 @@ agent_properties = Dict(:infected => [sum],
                   :dayssick => [mean],
                   :healthy => [sum])
 
-@time results = step!(model, dummystep, modelstep!, 20, agent_properties)
+@time results = step!(model, dummystep, modelstep!, 10, agent_properties)
 
 print(results)
